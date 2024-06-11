@@ -38,7 +38,7 @@ const LeftSidebar = () => {
                             href={route}
                             key={label}
                             className={cn(
-                                'flex items-center justify-center gap-3 py-4 max-lg:px-4 lg:justify-start',
+                                'flex items-center justify-start gap-3 py-4 max-lg:px-4',
                                 {
                                     'border-r-4 border-orange-1 bg-nav-focus':
                                         isActive,
