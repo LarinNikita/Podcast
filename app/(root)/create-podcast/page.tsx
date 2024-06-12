@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { Loader } from 'lucide-react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { set, useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import { Id } from '@/convex/_generated/dataModel';
@@ -46,6 +46,7 @@ const CreatePodcast = () => {
     const [imageUrl, setImageUrl] = useState('');
 
     const [audioPrompt, setAudioPrompt] = useState('');
+    const [audioUrl, setAudioUrl] = useState('');
     const [audioStorageId, setAudioStorageId] = useState<Id<'_storage'> | null>(
         null,
     );
@@ -156,7 +157,15 @@ const CreatePodcast = () => {
                         />
                     </div>
                     <div className="flex flex-col pt-10">
-                        <GeneratePodcast />
+                        <GeneratePodcast
+                            setAudioPodcast={setAudioStorageId}
+                            setAudio={setAudioUrl}
+                            voiceType={voiceType}
+                            audio={audioUrl}
+                            voicePrompt={voicePrompt}
+                            setVoicePrompt={setVoicePrompt}
+                            setAudioDuration={setAudioDuration}
+                        />
                         <GenerateThumbnail />
                         <div className="mt-10 w-full">
                             <Button
