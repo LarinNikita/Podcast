@@ -31,7 +31,7 @@ import { Button } from '@/components/ui/button';
 import GeneratePodcast from '@/components/GeneratePodcast';
 import GenerateThumbnail from '@/components/GenerateThumbnail';
 
-const voiceCategories = ['alloy', 'shimmer', 'nova', 'echo', 'fable', 'onyx'];
+const voiceCategories = ['Adam', 'Nicole', 'Bill', 'Jessie', 'Sam', 'Giovanni'];
 
 const formSchema = z.object({
     podcastTitle: z.string().min(2),
@@ -158,9 +158,9 @@ const CreatePodcast = () => {
                     </div>
                     <div className="flex flex-col pt-10">
                         <GeneratePodcast
-                            setAudioPodcast={setAudioStorageId}
+                            setAudioStorageId={setAudioStorageId}
                             setAudio={setAudioUrl}
-                            voiceType={voiceType}
+                            voiceType={voiceType!}
                             audio={audioUrl}
                             voicePrompt={voicePrompt}
                             setVoicePrompt={setVoicePrompt}
