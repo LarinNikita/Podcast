@@ -50,15 +50,6 @@ export interface ProfilePodcastProps {
     listeners: number;
 }
 
-// export type VoiceType =
-//     | 'Adam'
-//     | 'Nicole'
-//     | 'Bill'
-//     | 'Jessie'
-//     | 'Sam'
-//     | 'Giovanni'
-//     | null;
-
 export interface GeneratePodcastProps {
     voiceType: string;
     setAudio: Dispatch<SetStateAction<string>>;
