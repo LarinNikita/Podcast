@@ -6,8 +6,13 @@ import { useQuery } from 'convex/react';
 import PodcastCard from '@/components/PodcastCard';
 import { api } from '@/convex/_generated/api';
 
+import LoaderSpinner from '@/components/LoaderSpinner';
+
 function Home() {
-    const podcastData = useQuery(api.podcasts.getTrendingPodcasts);
+    const trendingPodcasts = useQuery(api.podcasts.getTrendingPodcasts);
+
+    if (!trendingPodcasts) return <LoaderSpinner />;
+
     return (
         <div className="mt-9 flex flex-col gap-9">
             <section className="flex flex-col gap-5">
@@ -15,7 +20,7 @@ function Home() {
                     Trending Podcasts
                 </h1>
                 <div className="podcast_grid">
-                    {podcastData?.map(
+                    {trendingPodcasts?.map(
                         ({
                             _id,
                             podcastTitle,
@@ -24,7 +29,7 @@ function Home() {
                         }) => (
                             <PodcastCard
                                 key={_id}
-                                imgURL={imageUrl}
+                                imgUrl={imageUrl as string}
                                 title={podcastTitle}
                                 description={podcastDescription}
                                 podcastId={_id}
