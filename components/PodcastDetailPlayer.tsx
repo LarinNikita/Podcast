@@ -8,6 +8,7 @@ import { useMutation } from 'convex/react';
 import { PodcastDetailPlayerProps } from '@/types';
 
 import { api } from '@/convex/_generated/api';
+import { useAudio } from '@/providers/AudioProvider';
 
 import { Button } from './ui/button';
 import LoaderSpinner from './LoaderSpinner';
@@ -27,6 +28,7 @@ const PodcastDetailPlayer = ({
 }: PodcastDetailPlayerProps) => {
     const router = useRouter();
     const { toast } = useToast();
+    const { setAudio } = useAudio();
 
     const [isDeleting, setIsDeleting] = useState(false);
 
@@ -46,6 +48,16 @@ const PodcastDetailPlayer = ({
                 variant: 'destructive',
             });
         }
+    };
+
+    const handlePlay = () => {
+        setAudio({
+            title: podcastTitle,
+            audioUrl,
+            imageUrl,
+            author,
+            podcastId,
+        });
     };
 
     if (!imageUrl || !authorImageUrl) return <LoaderSpinner />;
@@ -84,7 +96,7 @@ const PodcastDetailPlayer = ({
                         </figure>
                     </article>
                     <Button
-                        onClick={() => {}}
+                        onClick={handlePlay}
                         className="text-16 w-full max-w-[250px] bg-orange-1 font-extrabold text-white-1"
                     >
                         <Image
