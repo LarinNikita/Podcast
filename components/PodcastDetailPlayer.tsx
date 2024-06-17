@@ -58,6 +58,7 @@ const PodcastDetailPlayer = ({
                     alt="Podcast image"
                     width={250}
                     height={250}
+                    className="rounded-md"
                 />
                 <div className="flex w-full flex-col gap-5 max-md:items-center md:gap-9">
                     <article className="flex flex-col gap-2 max-md:items-center">

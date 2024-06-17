@@ -47,6 +47,7 @@ const PodcastDetails = ({
                     </h2>
                 </figure>
             </header>
+            {/* @ts-ignore */}
             <PodcastDetailPlayer
                 isOwner={isOwner}
                 podcastId={podcast._id}
