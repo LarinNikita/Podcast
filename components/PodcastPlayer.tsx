@@ -211,7 +211,7 @@ const PodcastPlayer = () => {
                             onValueChange={handleVolumeChange}
                             max={100}
                             step={1}
-                            className="w-[100px]"
+                            className="w-[100px] max-md:hidden"
                         />
                     </div>
                 </div>
