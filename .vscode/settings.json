@@ -5,5 +5,12 @@
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "cSpell.words": ["openai", "Podcastr", "uuidv"]
+    "cSpell.words": [
+        "Embla",
+        "openai",
+        "podcaster",
+        "Podcasters",
+        "Podcastr",
+        "uuidv"
+    ]
 }
