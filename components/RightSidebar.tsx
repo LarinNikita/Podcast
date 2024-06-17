@@ -8,6 +8,8 @@ import { useRouter } from 'next/navigation';
 import { useQuery } from 'convex/react';
 
 import { api } from '@/convex/_generated/api';
+import { useAudio } from '@/providers/AudioProvider';
+import { cn } from '@/lib/utils';
 
 import Header from './Header';
 import Carousel from './Carousel';
@@ -16,13 +18,18 @@ import LoaderSpinner from './LoaderSpinner';
 const RightSidebar = () => {
     const { user } = useUser();
     const router = useRouter();
+    const { audio } = useAudio();
 
     const topPodcasters = useQuery(api.users.getTopUserByPodcastCount);
 
-    // if (!topPodcasters) return <LoaderSpinner />;
+    if (!topPodcasters) return <LoaderSpinner />;
 
     return (
-        <section className="right_sidebar text-white-1">
+        <section
+            className={cn('right_sidebar h-[calc(100vh-5px)]', {
+                'h-[calc(100vh-116px)]': audio?.audioUrl,
+            })}
+        >
             <SignedIn>
                 <Link
                     href={`/profile/${user?.id}`}
