@@ -19,7 +19,7 @@ const RightSidebar = () => {
 
     const topPodcasters = useQuery(api.users.getTopUserByPodcastCount);
 
-    if (!topPodcasters) return <LoaderSpinner />;
+    // if (!topPodcasters) return <LoaderSpinner />;
 
     return (
         <section className="right_sidebar text-white-1">
